@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIMMA · Stand Milano Unica febbraio 2027</title>
+<style>
+@font-face{font-family:"Cond";src:local("DIN Condensed Bold"),local("DINCondensed-Bold")}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000;color:#fff;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{display:grid;grid-template-columns:1fr 330px;grid-template-rows:auto 1fr;height:100vh}
+.ist{border-top:1px solid #222;padding:26px 34px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px 34px}
+.ist h3{grid-column:1/-1;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:24px;font-weight:normal;letter-spacing:.5px;margin:0}
+.ist div{font-size:13px;line-height:1.5;color:#ccc}
+.ist b{display:block;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:17px;font-weight:normal;color:#b4cd45;letter-spacing:.5px;margin-bottom:3px}
+@media print{.ist{display:none}}
+header{grid-column:1/3;display:flex;align-items:flex-end;justify-content:space-between;padding:22px 34px 8px}
+.brand{font-family:"Cond","DIN Condensed","Oswald",sans-serif;text-transform:uppercase;line-height:.95}
+.brand .c{font-size:54px;display:inline-block;background:linear-gradient(90deg,#b4cd45,#3fa7b6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:1px}
+.brand .t{font-size:28px;color:#fff;letter-spacing:.5px}
+.brand .s{font-size:19px;color:#bbb;margin-top:6px;letter-spacing:.5px}
+.stats{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;font-size:19px;text-align:right;color:#bbb;letter-spacing:.5px}
+.stats b{color:#fff;font-size:30px;display:block}
+main{position:relative;min-height:0;padding:0 20px 70px}
+svg#plan{width:100%;height:100%;display:block;touch-action:none;user-select:none}
+aside{border-left:1px solid #222;padding:8px 22px 70px;overflow:auto;position:relative}
+aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;font-size:21px;letter-spacing:.5px;margin:14px 0 8px;color:#fff;font-weight:normal}
+.it{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1c1c1c;font-size:13px;cursor:pointer}
+.it .sw{width:16px;height:16px;border-radius:3px}
+.it .m{color:#888;font-size:11.5px}
+.it.off{opacity:.35}
+.stabs{display:flex;gap:6px;margin:10px 0 6px;position:sticky;top:0;background:#000;padding:6px 0;z-index:2}
+.stabs button{flex:1;background:#151515;color:#bbb;border:2px solid #333;border-radius:4px;padding:8px 4px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:18px;letter-spacing:.5px;cursor:pointer}
+.stabs button.on{border-color:#b4cd45;color:#fff}
+.fg{font-size:12px;color:#9a9a9a;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fxg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fxi{cursor:pointer;border:2px solid transparent;border-radius:4px;padding:3px;background:#111}
+.fxi img{width:100%;height:84px;object-fit:contain;display:block;background:#1a1a1a}
+.fxi span{display:block;font-size:10.5px;line-height:1.25;margin-top:3px;color:#ddd}
+.fxi small{display:block;font-size:9.5px;color:#888}
+.fxi.on{border-color:#b4cd45}
+#rsz{position:absolute;left:24px;bottom:16px;background:#111;border:1px solid #333;border-radius:4px;padding:8px 10px;display:none;gap:12px;align-items:center;font-size:12px;color:#ddd}
+#rsz .rn{font-weight:600;color:#fff}
+#rsz input{width:64px;background:#000;color:#fff;border:1px solid #444;border-radius:3px;padding:3px 5px;font-size:13px}
+#rsz button{background:#151515;color:#ddd;border:1px solid #333;border-radius:3px;padding:4px 8px;font-size:11px;cursor:pointer}
+#prev{position:absolute;right:16px;top:6px;width:170px;background:#111;border:1px solid #333;border-radius:4px;padding:6px;display:none}
+#prev img{width:100%;max-height:230px;object-fit:contain;display:block}
+#prev span{display:block;font-size:11px;margin-top:4px;color:#ddd}
+.it .n{line-height:1.25}
+.it .q{font-size:10.5px;color:#d9b85a}
+.bt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.bt button{flex:1;background:#151515;color:#ddd;border:1px solid #333;border-radius:4px;padding:8px 6px;font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;font-size:16px;letter-spacing:.5px;cursor:pointer}
+.bt button:hover{border-color:#8cc63f;color:#fff}
+.logo{width:62px;margin-left:28px;mix-blend-mode:screen}
+.hr{display:flex;align-items:flex-end}
+.b3d{background:#151515;color:#fff;border:2px solid #b4cd45;border-radius:4px;padding:10px 26px;margin-right:34px;align-self:center;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:.5px;cursor:pointer}
+.b3d:hover{background:#b4cd45;color:#000}
+.tabs{display:flex;gap:10px;align-self:center}
+.tabs button{background:#151515;color:#fff;border:2px solid #333;border-radius:4px;padding:10px 22px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:.5px;cursor:pointer}
+.ver{position:fixed;left:12px;bottom:6px;font-size:9px;color:#555}
+.el{cursor:grab}
+.el.flash .body{animation:fl .45s 6 alternate}
+@keyframes fl{from{stroke:#b4cd45;stroke-width:2}to{stroke:#b4cd45;stroke-width:9}}
+.el.sel .body{stroke:#b4cd45;stroke-width:2.5}
+.el.bad .body{stroke:#ff5a4a;stroke-width:3}
+.lbl{font-size:11px;fill:#fff;pointer-events:none;font-family:"Helvetica Neue",Arial,sans-serif}
+.lbl.d{fill:#111}
+.dim{font-family:"Cond","DIN Condensed",sans-serif;font-size:17px;fill:#9a9a9a;letter-spacing:.5px}
+.rot{cursor:pointer}
+@media print{
+ @page{size:A4 landscape;margin:8mm}
+ .wrap{height:auto;grid-template-columns:1fr 250px}
+ main{height:170mm}
+ .bt,.ver{display:none}
+ .it.off{display:none}
+ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .rotg{display:none}
+}
+</style></head>
+<body>
+<div class="wrap">
+<header>
+ <div class="brand"><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div>
+ <div class="hr"><button class="b3d" onclick="exp3d();window.open('3d.html','fimma3d')">Apri 3D</button><div class="stats"><b id="occ">0,0 m²</b>occupati dagli elementi</div><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div>
+</header>
+<main><div id="rsz"><span class="rn"></span><label>Larghezza <input id="rw" type="number" min="5" step="5"> cm</label><label><span id="rdl">Profondità</span> <input id="rd" type="number" min="2" step="5"> cm</label><button id="r0">Misura originale</button></div><div id="prev"><img><span></span></div><svg id="plan" viewBox="-60 -80 1520 900" preserveAspectRatio="xMidYMid meet"></svg></main>
+<aside>
+ <div class="stabs"><button id="tabE" class="on">Elementi</button><button id="tabG">Grafiche forex</button></div>
+ <div id="paneE">
+ <div id="list"></div>
+</div><div id="paneG" style="display:none"><div id="fxcat"></div></div>
+ <div class="bt"><button id="undoBtn">Indietro</button><button id="ideaBtn">Idea base</button><button id="rotBtn">Ruota 90°</button><button id="resetBtn">Ripristina</button><button onclick="print()">Stampa</button><button onclick="exp3d();window.open('3d.html','fimma3d')">Vista 3D</button></div>
+</aside>
+</div>
+<section class="ist"><h3>Come si usa</h3>
+<div><b>Spostare</b>Trascina gli elementi dentro lo stand. Il bordo rosso indica che due elementi si sovrappongono o escono dalle pareti.</div>
+<div><b>Ruotare</b>Clicca un elemento: il pallino verde lo ruota di 90°.</div>
+<div><b>Ridimensionare</b>Clicca un elemento e scrivi le misure nuove nella barra in basso a sinistra: larghezza e profondità, per le grafiche larghezza e altezza. L'elemento cambiato porta la scritta Ridimensionato; Misura originale lo riporta com'era.</div>
+<div><b>Grafiche forex</b>Nella scheda Grafiche forex trascina una miniatura sulla parete: il pannello si aggancia da solo.</div>
+<div><b>Togliere e rimettere</b>Nella scheda Elementi un clic sul nome toglie o rimette l'elemento.</div>
+<div><b>Vista 3D</b>Apri 3D mostra lo stand in tre dimensioni e si aggiorna mentre sposti gli elementi.</div>
+<div><b>Annullare</b>Indietro annulla l'ultima mossa, Idea base riporta alla disposizione di partenza. La disposizione resta salvata in questo browser.</div>
+</section>
+<div class="ver">v0.3.1</div>
+
+<script>
+window.name='fimmapianta';
+// misure in cm, dal progetto del 20/05/2026; "q" = misura stimata da confermare
+const EL=[
+ {id:'desk',n:'Banco reception FIMMA · SINCRO',w:80,d:40,c:'#e8893a'},
+ {id:'t1',n:'Tavolo 1',w:80,d:82,c:'#8a6a4a'},
+ {id:'t2',n:'Tavolo 2',w:80,d:82,c:'#8a6a4a'},
+ {id:'t3',n:'Tavolo 3',w:80,d:82,c:'#8a6a4a'},
+ {id:'b1',n:'Bancone vetro LED · modulo 1',w:100,d:50,c:'#3aa6d8'},
+ {id:'b2',n:'Bancone vetro LED · modulo 2',w:100,d:50,c:'#3aa6d8'},
+ {id:'cf',n:'Mobiletto caffè',w:100,d:50,c:'#e8893a'},
+ {id:'e1',n:'Separè con bottoni 1',w:65,d:112,c:'#c43fc4',shape:'I'},
+ {id:'e2',n:'Separè con bottoni 2',w:65,d:112,c:'#c43fc4',shape:'I'},
+ {id:'tl',n:'Parete storia con tirella bottoni',w:300,d:15,c:'#3a4fd6'},
+ {id:'cu',n:'Parete salotto con vetrina a 12 cubi LED',w:45,d:220,c:'#3c8a4a',shape:'cubi'},
+ {id:'tv',n:'Parete con TV',w:206,d:20,c:'#3c8a4a'},
+ {id:'li',n:'Parete a listelli di legno del salotto',w:15,d:200,c:'#3c8a4a'},
+ {id:'sa',n:'Salotto · 4 poltrone e tavolino',w:252,d:200,c:'#9a9a9a',shape:'salotto'},
+ {id:'k24',n:'Kallax 2×4',w:77,d:39,c:'#e4e4e4',dark:1},
+ {id:'tt',n:'Tavolino alto tondo',w:70,d:70,c:'#8a6a4a',shape:'round',sz:'Ø 70 cm'},
+ {id:'ar',n:'Armadio 2 ante',w:80,d:45,c:'#777777'},
+ {id:'pt',n:'TV 50″ con piantana',w:112,d:50,c:'#555555',shape:'tvp',sz:'TV 112 × 65 · base 112 × 50 cm'}
+];
+const FX=[["Milano Unica 2026", [{"id": "fx2", "n": "Alfa New Classic", "w": 98, "h": 184, "img": "fx26_alfa"}, {"id": "fx1", "n": "Settori e mappa Europa", "w": 201, "h": 183, "img": "fx26_mappa-settori"}, {"id": "f26b", "n": "Foto persone 65°", "w": 340, "h": 183, "img": "fx26_parete-fondo-dx"}, {"id": "fx3", "n": "Timeline 65 anni", "w": 300, "h": 183, "img": "fx26_timeline-65"}, {"id": "f26k", "n": "Foto produzione (Kallax)", "w": 78, "h": 151, "img": "fx26_kallax"}, {"id":  "f26nx", "n":  "NX", "w":  115, "h":  184, "img":  "fx25_nx"}, {"id":  "f26es", "n":  "Essential", "w":  115, "h":  184, "img":  "fx25_essential"}, {"id":  "f26on", "n":  "Oneclak", "w":  115, "h":  184, "img":  "fx25_oneclak"}, {"id":  "f26fl", "n":  "Flexivela", "w":  115, "h":  184, "img":  "fx25_flexivela"}, {"id":  "f26de", "n":  "Desk 65°", "w":  77, "h":  93, "img":  "fx26_desk"}, {"id":  "f26t1", "n":  "Tavolo 1 · Sincro", "w":  91, "h":  94, "img":  "fx26_tavolo1"}, {"id":  "f26t2", "n":  "Tavolo 2 · Fimma", "w":  91, "h":  94, "img":  "fx26_tavolo2-3"}, {"id":  "f26t3", "n":  "Tavolo 3 · Fimma", "w":  91, "h":  94, "img":  "fx26_tavolo2-3"}, {"id":  "f26lf", "n":  "Logo Fimma", "w":  58, "h":  16, "img":  "fx26_logo-fimma"}, {"id":  "f26ls", "n":  "Logo Sincro", "w":  57, "h":  16, "img":  "fx26_logo-sincro"}]], ["Milano Unica 2025", [{"id": "f25al", "n": "Alfa New Classic", "w": 115, "h": 184, "img": "fx25_alfa"}, {"id": "f25nx", "n": "NX", "w": 115, "h": 184, "img": "fx25_nx"}, {"id": "f25es", "n": "Essential", "w": 115, "h": 184, "img": "fx25_essential"}, {"id": "f25on", "n": "Oneclak", "w": 115, "h": 184, "img": "fx25_oneclak"}, {"id": "f25fl", "n": "Flexivela", "w": 115, "h": 184, "img": "fx25_flexivela"}, {"id": "f25si", "n": "Sistema AF · KF · MF", "w": 135, "h": 184, "img": "fx25_sistema-af-kf-mf"}, {"id": "f25ri", "n": "Righe", "w": 67, "h": 184, "img": "fx25_righe"}, {"id": "f25so", "n": "Sostenibilità", "w": 138, "h": 184, "img": "fx25_sostenibilita"}, {"id": "f25ma", "n": "Settori e mappa Europa", "w": 136, "h": 184, "img": "fx25_mappa-settori"}, {"id": "f25we", "n": "Foto persone", "w": 161, "h": 184, "img": "fx25_we-are-fimma"}, {"id": "f25pr", "n": "Foto produzione", "w": 161, "h": 184, "img": "fx25_produzione"}, {"id": "f25st", "n": "Storia 1941-2020", "w": 75, "h": 184, "img": "fx25_storia"}, {"id": "f25ce", "n": "Certificazioni", "w": 59, "h": 184, "img": "fx25_certificazioni"}, {"id": "f25ba", "n": "Desk · Fimma Sincro", "w": 77, "h": 93, "img": "fx25_banchetto"}, {"id": "f25t1", "n": "Tavolo 1 · Sincro", "w": 91, "h": 94, "img": "fx25_T1"}, {"id": "f25t2", "n": "Tavolo 2 · Fimma", "w": 91, "h": 94, "img": "fx25_T2"}, {"id": "f25t3", "n": "Tavolo 3 · Technical Apparel", "w": 91, "h": 94, "img": "fx25_T3"}, {"id": "f25me", "n": "Foto metallo", "w": 158, "h": 184, "img": "fx25_metallo"}, {"id": "f25pi", "n": "Foto pianta e bottoni", "w": 148, "h": 184, "img": "fx25_pianta"}]], ["Milano Unica 2024", [{"id": "f24al", "n": "Alfa New Classic", "w": 112, "h": 176, "img": "fx24_fronte-dx_alfa"}, {"id": "f24es", "n": "Essential", "w": 112, "h": 176, "img": "fx24_fronte-dx_essential"}, {"id": "f24fl", "n": "Flexivela", "w": 112, "h": 176, "img": "fx24_fronte-dx_flexivela"}, {"id": "f24nx", "n": "NX", "w": 112, "h": 176, "img": "fx24_fronte-dx_nx"}, {"id": "f24lo", "n": "Fimma e Sincro", "w": 122, "h": 176, "img": "fx24_fronte-sx_loghi"}, {"id": "f24c1", "n": "Certificazioni", "w": 122, "h": 176, "img": "fx24_fronte-sx_certificazioni"}, {"id": "f24c2", "n": "Sostenibilità e certificazioni", "w": 122, "h": 176, "img": "fx24_retro-sx_certificazioni"}, {"id": "f24f1", "n": "Foto We like to impress", "w": 122, "h": 176, "img": "fx24_fronte-sx_foto"}, {"id": "f24f2", "n": "Foto foglia e bottone", "w": 122, "h": 176, "img": "fx24_retro-sx_foto"}, {"id": "f24ff", "n": "Foto azienda 100% rinnovabile", "w": 132, "h": 176, "img": "fx24_fondo_foto"}, {"id": "f24fi", "n": "Storia, mappa e settori", "w": 132, "h": 176, "img": "fx24_fondo_info"}, {"id": "f24ka", "n": "Foto produzione (Kallax)", "w": 79, "h": 149, "img": "fx24_kallax"}, {"id": "f24ba", "n": "Desk · Fimma Sincro", "w": 78, "h": 95, "img": "fx24_banchetto"}]], ["Fiera AA 2025", [{"id": "a25a", "n": "Foto fastening performance", "w": 186, "h": 300, "img": "fxAA25_A_186x300_250811"}, {"id": "a25b", "n": "Foto pianta sustainability", "w": 201, "h": 400, "img": "fxAA25_B_201x400_250811"}, {"id": "a25c", "n": "Foto produzione 1", "w": 150, "h": 300, "img": "fxAA25_C_150x300_250811"}, {"id": "a25c2", "n": "Foto produzione 2", "w": 150, "h": 300, "img": "fxAA25_C_150x300_250811_a"}, {"id": "a25c3", "n": "Foto produzione 3", "w": 150, "h": 300, "img": "fxAA25_C_150x300_250811_b"}, {"id": "a25d", "n": "Sistema AF · KF · MF", "w": 225, "h": 400, "img": "fxAA25_D_225x400_250811"}, {"id": "a25e", "n": "Storia, mappa e settori", "w": 250, "h": 300, "img": "fxAA25_E_250x300_250811"}, {"id": "a25f", "n": "Sostenibilità e certificazioni", "w": 230, "h": 300, "img": "fxAA25_F_230x300_250811"}, {"id": "a25i", "n": "Fascia fastening performance", "w": 200, "h": 63, "img": "fxAA25_I_200x63_250811"}]], ["Fiera AA 2023", [{"id": "a23p", "n": "Foto produzione", "w": 150, "h": 400, "img": "fxAA23_150x400_porta_230801nuovolayout"}, {"id": "a23s", "n": "Foto pianta sustainability", "w": 160, "h": 300, "img": "fxAA23_160x300_2308011"}, {"id": "a23e", "n": "Storia, mappa e settori", "w": 260, "h": 300, "img": "fxAA23_260x300_2308011"}, {"id": "a23i", "n": "Sostenibilità e certificazioni", "w": 260, "h": 300, "img": "fxAA23_260x300_interno_230801"}, {"id": "a23g", "n": "Sistema AF · KF · MF", "w": 300, "h": 400, "img": "fxAA23_300x400_230907"}, {"id": "a23gi", "n": "Foto fastening performance", "w": 300, "h": 400, "img": "fxAA23_300x400_interno_230801"}]]];
+FX.forEach(([g,it])=>it.forEach(f=>EL.push({id:f.id,n:f.n+' · '+g,w:f.w,d:10,c:'#ffffff',sz:f.w+' cm · h '+f.h,fx:f,g})));
+for(let i=1;i<=10;i++)EL.push({id:'s'+i,n:'Seduta alta',w:35,d:35,c:'#5a5a5a',grp:'sg'});
+EL.forEach(e=>{e.w0=e.w;e.d0=e.d});
+const RW=388,RD=588,SX=830,SNAP=5,KEY='fimma-mu27-pianta-v8';
+const NS='http://www.w3.org/2000/svg';
+const svg=document.getElementById('plan');
+function mk(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+
+function initial(){
+ let x=SX,y=0,row=0;const s={};
+ EL.forEach(e=>{if(e.fx){s[e.id]={x:RW/2-e.w/2,y:RD-40,r:0,on:0};return}const W=e.stools?e.w+80:e.w;if(x+W>SX+580){x=SX;y+=row+28;row=0}
+  s[e.id]={x:x+(e.stools?40:0),y,r:0,on:1};x+=W+24;row=Math.max(row,e.d)});
+ return s;
+}
+function idea(){const s=initial();const P={e1:[23,99,90],k24:[95,99,90],tv:[247,128,0],t1:[251,240,0],s1:[276,200,0],s2:[205,260,0],s3:[342,260,0],s4:[271,330,0],t2:[145,391,0],s5:[170,345,0],s6:[99,416,0],s7:[236,411,0],s8:[165,482,0],cu:[3,367,0],b2:[251,538,0],b1:[478,124,0],cf:[468,33,90],e2:[590,3,90],sa:[710,63,0],li:[609,84,90],tl:[712,401,0],desk:[579,438,0],t3:[1152,-2,0],tt:[830,560,0],ar:[930,560,0],pt:[1030,560,0],pr:[1180,580,0],s9:[1300,560,0],s10:[1350,560,0]};
+ for(const k in P)s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};return s}
+function prop2(){const s=initial();const P={caf:0,cf:[144,0,0],t1:[70,110,0],s1:[32,133,0],s2:[153,133,0],t2:[240,110,0],s3:[202,133,0],s4:[323,133,0],e1:[64,216,90],e2:[260,216,90],b1:[95,335,90],b2:[95,435,90],cu:[0,330,0],desk:[300,540,0]};
+ for(const k in P)if(P[k])s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};return s}
+let SLOT='A';
+const keyOf=sl=>sl==='A'?KEY:KEY+'-'+sl;
+const fresh=sl=>sl==='A'?idea():prop2();
+function load(sl){const v=JSON.parse(localStorage.getItem(keyOf(sl))||'null')||fresh(sl);EL.forEach(e=>{if(!v[e.id])v[e.id]=initial()[e.id]});return v}
+let S=load(SLOT);
+const HT={pt:170,desk:100,t1:105,t2:105,t3:105,b1:100,b2:100,cf:90,e1:183,e2:183,tl:183,cu:183,tv:183,li:183,sa:75,k24:147,tt:105,ar:200,pt:160,pr:100};
+function exp3d(){try{localStorage.setItem(KEY+'-3d',JSON.stringify(EL.filter(e=>S[e.id]&&S[e.id].on).map(e=>({id:e.id,n:e.n,w:e.w,d:e.d,c:e.c,shape:e.shape||'',h:e.fx?(S[e.id].h||e.fx.h):(HT[e.id]||(e.grp?75:100)),img:e.fx?e.fx.img:'',x:S[e.id].x,y:S[e.id].y,r:S[e.id].r||0}))))}catch(_){}}
+const save=()=>{localStorage.setItem(keyOf(SLOT),JSON.stringify(S));exp3d()};
+function slot(sl){save();SLOT=sl;localStorage.setItem(KEY+'-slot',sl);S=load(sl);sel=null;all();marks()}
+function marks(){['A','B'].forEach(k=>{const b=document.getElementById('sl'+k);if(b)b.style.borderColor=SLOT===k?'#b4cd45':''})}
+const HIST=[];const snap=()=>{HIST.push(JSON.stringify(S));if(HIST.length>200)HIST.shift()};
+function undo(){if(!HIST.length)return;S=JSON.parse(HIST.pop());save();all()}
+
+// pianta
+const g0=mk('g',{});
+for(let x=50;x<RW;x+=50)mk('line',{x1:x,y1:0,x2:x,y2:RD,stroke:'#1f1f1f'},g0);
+for(let y=50;y<RD;y+=50)mk('line',{x1:0,y1:y,x2:RW,y2:y,stroke:'#1f1f1f'},g0);
+mk('rect',{x:0,y:0,width:RW,height:RD,fill:'#1a1a1a'},g0);
+g0.querySelectorAll('line').forEach(l=>g0.appendChild(l));
+mk('path',{d:`M0 ${RD} V0 H${RW} V${RD}`,fill:'none',stroke:'#e6e6e6','stroke-width':6},g0);
+mk('line',{x1:0,y1:RD,x2:RW,y2:RD,stroke:'#b4cd45','stroke-width':2,'stroke-dasharray':'10 8'},g0);
+let t=mk('text',{x:RW/2,y:RD+34,'text-anchor':'middle',class:'dim'},g0);t.textContent='FRONTE APERTO · 388 CM';t.setAttribute('fill','#b4cd45');
+t=mk('text',{x:RW/2,y:-18,'text-anchor':'middle',class:'dim'},g0);t.textContent='PARETE DI FONDO · 388 CM';
+t=mk('text',{x:-22,y:RD/2,'text-anchor':'middle',class:'dim',transform:`rotate(-90 -22 ${RD/2})`},g0);t.textContent='588 CM';
+t=mk('text',{x:RW+30,y:RD/2,'text-anchor':'middle',class:'dim',transform:`rotate(90 ${RW+30} ${RD/2})`},g0);t.textContent='588 CM';
+t=mk('text',{x:SX,y:-18,class:'dim'},g0);t.textContent='FUORI DALLO STAND';
+
+const g25=mk('g',{style:'display:none'});
+mk('rect',{x:0,y:0,width:588,height:584,fill:'none',stroke:'#3fa7b6','stroke-width':2,'stroke-dasharray':'14 8'},g25);
+let t25=mk('text',{x:294,y:-40,'text-anchor':'middle',class:'dim'},g25);t25.textContent='STAND LUGLIO 2025 · 588 × 584 CM';t25.setAttribute('fill','#3fa7b6');
+document.addEventListener('DOMContentLoaded',()=>{});
+const g26=mk('g',{style:'display:none'});
+mk('rect',{x:0,y:0,width:788,height:570,fill:'none',stroke:'#b4cd45','stroke-width':2,'stroke-dasharray':'4 6'},g26);
+let t26=mk('text',{x:394,y:-58,'text-anchor':'middle',class:'dim'},g26);t26.textContent='STAND LUGLIO 2026 · 788 × 570 CM';t26.setAttribute('fill','#b4cd45');
+const defs=mk('defs',{});
+const layer=mk('g',{});
+const nodes={};let sel=null;
+
+function draw(e){
+ const st=S[e.id];let g=nodes[e.id];
+ if(!g){g=mk('g',{class:'el'},layer);g.dataset.id=e.id;nodes[e.id]=g;
+  if(e.stools){mk('rect',{x:-36,y:e.d/2-17,width:34,height:34,rx:3,fill:'#4a4a4a'},g);mk('rect',{x:e.w+2,y:e.d/2-17,width:34,height:34,rx:3,fill:'#4a4a4a'},g)}
+  if(e.d<25)mk('rect',{x:-6,y:-18,width:e.w+12,height:e.d+36,fill:'rgba(255,255,255,0.001)'},g);
+  if(e.fx){const pid='pt_'+e.id;if(!document.getElementById(pid)){const pd=mk('pattern',{id:pid,patternUnits:'objectBoundingBox',width:1,height:1,preserveAspectRatio:'none'},defs);const im=mk('image',{width:1,height:1,preserveAspectRatio:'xMidYMid slice'},pd);im.setAttribute('href','img/forex/'+e.fx.img+'.jpg');pd.setAttribute('patternContentUnits','objectBoundingBox')}}
+  const bd=mk('rect',{class:'body',x:0,y:0,width:e.w,height:e.d,rx:2,fill:e.fx?'url(#pt_'+e.id+')':e.c,stroke:'#000','stroke-width':1},g);
+  if(e.shape==='I'){bd.setAttribute('fill','rgba(0,0,0,0)');bd.setAttribute('stroke','none');const t=5;
+   mk('rect',{x:3,y:t,width:e.w/2-t/2-3,height:e.d-2*t,fill:e.c,opacity:.3},g);mk('rect',{x:e.w/2+t/2,y:t,width:e.w/2-t/2-3,height:e.d-2*t,fill:e.c,opacity:.3},g);
+   mk('rect',{x:0,y:0,width:e.w,height:t,fill:e.c},g);mk('rect',{x:0,y:e.d-t,width:e.w,height:t,fill:e.c},g);mk('rect',{x:e.w/2-t/2,y:0,width:t,height:e.d,fill:e.c},g)}
+  if(e.shape==='tvp'){bd.setAttribute('fill','rgba(0,0,0,0)');bd.setAttribute('stroke','none');mk('rect',{x:e.w/2-30,y:e.d/2-25,width:60,height:50,rx:4,fill:'#3a3a3a',stroke:'#777'},g);mk('rect',{x:0,y:e.d/2-3,width:e.w,height:6,fill:'#111',stroke:'#aaa'},g)}
+  if(e.shape==='round'){bd.setAttribute('fill','rgba(0,0,0,0)');bd.setAttribute('stroke','none');mk('circle',{cx:e.w/2,cy:e.d/2,r:e.w/2,fill:e.c,stroke:'#000'},g)}
+  if(e.shape==='salotto'){bd.setAttribute('fill','rgba(255,255,255,0.03)');bd.setAttribute('stroke','#333');bd.setAttribute('stroke-dasharray','4 4');
+   [[45,45,-25],[205,45,25],[55,155,25],[200,140,-30]].forEach(([cx,cy,a])=>{const pg=mk('g',{transform:`rotate(${a} ${cx} ${cy})`},g);
+    mk('rect',{x:cx-31,y:cy-31,width:62,height:62,rx:18,fill:'#2a2a2a',stroke:e.c,'stroke-width':2},pg);mk('rect',{x:cx-21,y:cy-21,width:42,height:42,rx:10,fill:'none',stroke:e.c,'stroke-width':1},pg)});
+   mk('rect',{x:103,y:78,width:46,height:46,fill:'#2a2a2a',stroke:e.c,'stroke-width':2},g)}
+  if(e.shape==='cubi'){bd.setAttribute('fill','rgba(0,0,0,0)');bd.setAttribute('stroke','none');
+   mk('rect',{x:0,y:0,width:15,height:e.d,fill:e.c},g);const y0=(e.d-4*40)/2;for(let i=0;i<4;i++)mk('rect',{x:15,y:y0+i*40+3,width:30,height:34,fill:'#1d1d1d',stroke:e.c,'stroke-width':2},g)}
+  const lb=mk('text',{class:'lbl'+(e.dark?' d':''),x:e.w/2,y:e.d/2+4,'text-anchor':'middle'},g);
+  lb.textContent=e.grp?'':e.n.replace(/ ·.*$/,'').replace('Banco reception FIMMA','Desk').replace(/^Salotto.*/,'Salotto').replace('Pannello removibile davanti al bancone','Pannello bancone').replace('TV 50″ con piantana','TV').replace(/ · Milano Unica (20\d\d)$/,' $1').replace(/ · Fiera AA (20\d\d)$/,' AA $1').replace('Forex settori e mappa Europa','Forex mappa').replace('Forex Alfa New Classic','Forex Alfa').replace('Forex timeline 65 anni','Forex 65 anni').replace('Parete storia con tirella bottoni','Storia').replace('Vetrina prodotti a cubi LED','Cubi').replace('Mobiletto caffè','Caffè').replace('Separè con bottoni','Separè').replace('Parete con TV','TV').replace('Parete a listelli di legno del salotto','Listelli').replace('Parete salotto con vetrina a 12 cubi LED','Cubi');
+  if(e.d<25)lb.setAttribute('y',e.d+13),lb.setAttribute('class','lbl');
+  if(e.w<50&&!e.grp){lb.setAttribute('x',e.w+6);lb.setAttribute('text-anchor','start');lb.setAttribute('class','lbl')}
+  if(!e.grp){const rz=S[e.id]&&(S[e.id].w||S[e.id].d||S[e.id].h);const sz=mk('text',{class:lb.getAttribute('class'),x:lb.getAttribute('x'),y:+lb.getAttribute('y')+11,'text-anchor':lb.getAttribute('text-anchor'),'font-size':9,opacity:.8},g);sz.textContent=e.fx?(e.w+' cm · h '+(S[e.id].h||e.fx.h)):((S[e.id].w||S[e.id].d)?(e.w+' × '+e.d+' cm'):(e.sz||(e.w+' × '+e.d+' cm')));
+   if(rz){const rt=mk('text',{x:sz.getAttribute('x'),y:+sz.getAttribute('y')+11,'text-anchor':sz.getAttribute('text-anchor'),'font-size':9,fill:'#ffb347','font-weight':700},g);rt.textContent='RIDIMENSIONATO'}}
+  const rg=mk('g',{class:'rotg rot',transform:`translate(${e.w+(e.stools?44:10)},-10)`},g);
+  mk('circle',{r:11,fill:'#b4cd45'},rg);const rt=mk('text',{y:5,'text-anchor':'middle','font-size':15,fill:'#000'},rg);rt.textContent='↻';
+  rg.addEventListener('pointerdown',ev=>{ev.stopPropagation();rotate(e.id)});
+  g.addEventListener('pointerdown',ev=>startDrag(ev,e.id));
+ }
+ g.style.display=st.on?'':'none';
+ const cx=e.w/2,cy=e.d/2;
+ g.setAttribute('transform',`translate(${st.x} ${st.y}) rotate(${st.r} ${cx} ${cy})`);
+ g.querySelector('.rotg').style.display=(sel===e.id)?'':'none';
+ g.classList.toggle('sel',sel===e.id);
+}
+function box(e){const st=S[e.id];const ex=e.stools?36:0;
+ let w=e.w+2*ex,d=e.d,cx=st.x+e.w/2,cy=st.y+e.d/2;if(st.r%180){[w,d]=[d,w]}
+ return{x1:cx-w/2,y1:cy-d/2,x2:cx+w/2,y2:cy+d/2,inR:cx<RW+20}}
+function check(){
+ let occ=0;const B=EL.filter(e=>S[e.id].on).map(e=>[e,box(e)]);
+ B.forEach(([e,b])=>{let bad=false;const inside=b.x2>0&&b.x1<RW&&b.y2>0&&b.y1<RD;
+  if(inside){occ+=(b.x2-b.x1)*(b.y2-b.y1);
+   if(b.x1<-1||b.y1<-1||b.x2>RW+1||b.y2>RD+1)bad=true;
+   B.forEach(([f,c])=>{if(f!==e&&b.x1<c.x2-1&&b.x2>c.x1+1&&b.y1<c.y2-1&&b.y2>c.y1+1&&c.x1<RW)bad=true})}
+  nodes[e.id].classList.toggle('bad',bad)});
+ document.getElementById('occ').textContent=(occ/10000).toFixed(1).replace('.',',')+' m²';
+}
+function all(){EL.forEach(e=>{const st=S[e.id];if(!st)return;const w=st.w||e.w0,d=st.d||e.d0,hh=st.h||0;if(w!==e.w||d!==e.d||hh!==(e.hh||0)){e.hh=hh;e.w=w;e.d=d;if(nodes[e.id]){nodes[e.id].remove();delete nodes[e.id]}}});EL.forEach(draw);EL.filter(e=>e.grp).forEach(e=>layer.appendChild(nodes[e.id]));check();list();
+ const n=EL.filter(e=>e.grp&&S[e.id].on).filter(e=>{const b=box(e);const cx=(b.x1+b.x2)/2,cy=(b.y1+b.y2)/2;return cx>0&&cx<RW&&cy>0&&cy<RD}).length;
+ const q=document.getElementById('sgn');if(q)q.textContent=n+' nello stand'}
+function rotate(id){snap();S[id].r=(S[id].r+90)%360;save();all()}
+
+function pt(ev){const p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())}
+let drag=null;
+function snapWall(id){const e=EL.find(x=>x.id===id);if(!e||!e.fx)return;const st=S[id];
+ const r=st.r%180?1:0,cx=st.x+e.w/2,cy=st.y+e.d/2;if(cx<-40||cx>RW+40||cy<-40||cy>RD+40)return;
+ const dl=cx,dr=RW-cx,db=cy,m=Math.min(dl,dr,db);if(m>80)return;
+ if(m===db){st.r=0;st.y=Math.round(e.d/2-e.d/2);st.x=Math.round(Math.max(0,Math.min(RW-e.w,cx-e.w/2)))}
+ else{st.r=90;const ncx=m===dl?e.d/2:RW-e.d/2;const ncy=Math.max(e.w/2,Math.min(RD-e.w/2,cy));st.x=Math.round(ncx-e.w/2);st.y=Math.round(ncy-e.d/2)}}
+function flash(id){const n=nodes[id];if(!n)return;n.classList.remove('flash');void n.getBBox();n.classList.add('flash');setTimeout(()=>n.classList.remove('flash'),2800)}
+function startDrag(ev,id){snap();sel=id;const p=pt(ev);drag={id,dx:p.x-S[id].x,dy:p.y-S[id].y};svg.setPointerCapture(ev.pointerId);layer.appendChild(nodes[id]);all()}
+svg.addEventListener('pointermove',ev=>{if(!drag)return;const p=pt(ev);const st=S[drag.id];
+ st.x=Math.round((p.x-drag.dx)/SNAP)*SNAP;st.y=Math.round((p.y-drag.dy)/SNAP)*SNAP;draw(EL.find(e=>e.id===drag.id));check()});
+svg.addEventListener('dragover',ev=>{ev.preventDefault();ev.dataTransfer.dropEffect='copy'});
+svg.addEventListener('drop',ev=>{ev.preventDefault();const id=ev.dataTransfer.getData('text/plain');const e=EL.find(x=>x.id===id);if(!e)return;snap();const p=pt(ev);const st=S[id];st.on=1;st.r=0;st.x=Math.round(p.x-e.w/2);st.y=Math.round(p.y-e.d/2);snapWall(id);sel=id;save();all();flash(id)});
+svg.addEventListener('pointerup',()=>{if(drag){snapWall(drag.id);if(HIST.length&&HIST[HIST.length-1]===JSON.stringify(S))HIST.pop();drag=null;save();all()}});
+svg.addEventListener('pointerdown',ev=>{if(ev.target===svg||ev.target.closest('g')===g0){sel=null;all()}});
+document.addEventListener('keydown',ev=>{if((ev.metaKey||ev.ctrlKey)&&ev.key.toLowerCase()==='z'){ev.preventDefault();undo();return}
+ if(!sel)return;
+ if(ev.key==='r'||ev.key==='R')rotate(sel);
+ const k={ArrowLeft:[-SNAP,0],ArrowRight:[SNAP,0],ArrowUp:[0,-SNAP],ArrowDown:[0,SNAP]}[ev.key];
+ if(k){ev.preventDefault();snap();S[sel].x+=k[0];S[sel].y+=k[1];save();all()}});
+document.getElementById('rotBtn').onclick=()=>{if(sel)rotate(sel)};
+document.getElementById('undoBtn').onclick=undo;
+document.getElementById('ideaBtn').onclick=()=>{snap();S=fresh(SLOT);sel=null;save();all()};
+
+window.__x26=ev=>{const on=g26.style.display==='none';g26.style.display=on?'':'none';ev.target.style.borderColor=on?'#b4cd45':''};
+window.__x25=ev=>{const on=g25.style.display==='none';g25.style.display=on?'':'none';ev.target.style.borderColor=on?'#3fa7b6':''};
+document.getElementById('resetBtn').onclick=()=>{snap();S=initial();sel=null;save();all()};
+
+function fxcat(){const C=document.getElementById('fxcat');
+ if(!C.childElementCount){FX.forEach(([g,it])=>{const h=document.createElement('div');h.className='fg';h.textContent=g;C.appendChild(h);const gr=document.createElement('div');gr.className='fxg';C.appendChild(gr);
+  it.forEach(f=>{const d=document.createElement('div');d.className='fxi';d.dataset.id=f.id;d.innerHTML=`<img src="img/forex/${f.img}.jpg" loading="lazy"><span>${f.n}</span><small>${f.w} × h ${f.h} cm</small>`;
+   d.onclick=()=>{snap();const st=S[f.id];st.on=st.on?0:1;if(st.on){st.x=Math.round(RW/2-f.w/2);st.y=Math.round(RD/2-5);st.r=0;sel=f.id}else if(sel===f.id)sel=null;save();all();if(st.on)flash(f.id)};
+   d.draggable=true;d.addEventListener('dragstart',ev=>{ev.dataTransfer.setData('text/plain',f.id);ev.dataTransfer.effectAllowed='copy'});gr.appendChild(d)})})}
+ C.querySelectorAll('.fxi').forEach(d=>d.classList.toggle('on',!!S[d.dataset.id].on));
+ const P=document.getElementById('prev'),e=EL.find(x=>x.id===sel);
+ if(e&&e.fx){P.style.display='block';P.querySelector('img').src='img/forex/'+e.fx.img+'.jpg';P.querySelector('span').textContent=e.n+' · '+e.w+' × h '+(S[e.id].h||e.fx.h)+' cm'}else P.style.display='none'}
+function rsz(){const P=document.getElementById('rsz'),e=EL.find(x=>x.id===sel);
+ if(!e){P.style.display='none';return}P.style.display='flex';P.querySelector('.rn').textContent=e.n;
+ const a=document.getElementById('rw'),b=document.getElementById('rd');document.getElementById('rdl').textContent=e.fx?'Altezza':'Profondità';if(document.activeElement!==a)a.value=e.w;if(document.activeElement!==b)b.value=e.fx?(S[e.id].h||e.fx.h):e.d}
+function setDim(k,v){if(!sel||!(v>0))return;snap();S[sel][k]=Math.round(v);save();all()}
+document.getElementById('rw').addEventListener('change',ev=>setDim('w',+ev.target.value));
+document.getElementById('rd').addEventListener('change',ev=>{const e=EL.find(x=>x.id===sel);setDim(e&&e.fx?'h':'d',+ev.target.value)});
+document.getElementById('r0').onclick=()=>{if(!sel)return;snap();delete S[sel].w;delete S[sel].d;delete S[sel].h;save();all()};
+function tab(t){document.getElementById('paneE').style.display=t==='E'?'':'none';document.getElementById('paneG').style.display=t==='G'?'':'none';
+ document.getElementById('tabE').classList.toggle('on',t==='E');document.getElementById('tabG').classList.toggle('on',t==='G')}
+document.getElementById('tabE').onclick=()=>tab('E');document.getElementById('tabG').onclick=()=>tab('G');
+function list(){fxcat();rsz();const L=document.getElementById('list');
+ if(!L.childElementCount){EL.forEach(e=>{if(e.fx)return;if(e.grp&&e.id!=='s1')return;const G=e.grp?EL.filter(f=>f.grp===e.grp):[e];const d=document.createElement('div');d.className='it';d.dataset.id=e.id;
+  d.innerHTML=`<span class="sw" style="background:${e.c}"></span><span class="n">${e.grp?G.length+' sedute alte · <span id="sgn"></span>':e.n}<br><span class="m">${e.sz||(e.w+' × '+e.d+' cm')}</span>${e.q?' <span class="q">misura da confermare</span>':''}</span><span></span>`;
+  d.onclick=()=>{snap();const v=S[e.id].on?0:1;G.forEach(f=>{S[f.id].on=v;if(!v&&sel===f.id)sel=null});save();all()};L.appendChild(d)})}
+ L.querySelectorAll('.it').forEach(d=>d.classList.toggle('off',!S[d.dataset.id].on));
+}
+all();marks();exp3d();
+</script>
+</body></html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIMMA · Stand Milano Unica febbraio 2027 · 3D</title>
+<style>
+html,body{margin:0;height:100%;background:#000;color:#fff;font-family:"Helvetica Neue",Arial,sans-serif;overflow:hidden}
+header{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:flex-start;padding:22px 34px;pointer-events:none;z-index:2}
+.t{font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:28px;letter-spacing:.5px;line-height:1}
+.s{font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:19px;color:#bbb;margin-top:6px}
+.logo{width:62px;mix-blend-mode:screen}
+.b2d{background:#151515;color:#fff;border:2px solid #b4cd45;border-radius:4px;padding:10px 26px;margin-right:34px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:.5px;cursor:pointer}
+.b2d:hover{background:#b4cd45;color:#000}
+.bt{position:absolute;right:30px;bottom:24px;display:flex;gap:8px;z-index:2}
+.bt button{background:#151515;color:#ddd;border:1px solid #333;border-radius:4px;padding:8px 14px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:16px;letter-spacing:.5px;cursor:pointer}
+.bt button:hover{border-color:#b4cd45;color:#fff}
+#c{position:absolute;inset:0}
+.ver{position:fixed;left:12px;bottom:6px;font-size:9px;color:#555}
+</style>
+<script src="img/forex/forex-dati.js"></script>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<header><div><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div><div style="display:flex;align-items:center;pointer-events:auto"><button class="b2d" onclick="window.open('index.html','fimmapianta')">Vedi in pianta</button><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div></header>
+<div id="c"></div>
+<div class="bt"><button data-v="front">Dal corridoio</button><button data-v="top">Dall'alto</button><button data-v="side">Di lato</button></div>
+<div class="ver">v0.2.0</div>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+const KEY='fimma-mu27-pianta-v8-3d', RW=388, RD=588, WH=183;
+const box=document.getElementById('c');
+const R=new THREE.WebGLRenderer({antialias:true});R.setPixelRatio(devicePixelRatio);R.setSize(innerWidth,innerHeight);R.shadowMap.enabled=true;box.appendChild(R.domElement);
+const SC=new THREE.Scene();SC.background=new THREE.Color(0x000000);
+const CAM=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,1,5000);
+const OC=new OrbitControls(CAM,R.domElement);OC.target.set(RW/2,70,RD/2);OC.maxPolarAngle=Math.PI/2-0.02;
+SC.add(new THREE.HemisphereLight(0xffffff,0x444444,1.1));
+const L=new THREE.DirectionalLight(0xffffff,1.2);L.position.set(RW+300,600,RD+500);L.castShadow=true;L.shadow.mapSize.set(2048,2048);
+Object.assign(L.shadow.camera,{left:-600,right:600,top:600,bottom:-600,far:2500});L.target.position.set(RW/2,0,RD/2);SC.add(L,L.target);
+// stand: pavimento, parete di fondo, pareti laterali; fronte aperto verso il corridoio
+const fl=new THREE.Mesh(new THREE.BoxGeometry(RW,2,RD),new THREE.MeshStandardMaterial({color:0x2a2a2a}));fl.position.set(RW/2,-1,RD/2);fl.receiveShadow=true;SC.add(fl);
+const wm=new THREE.MeshStandardMaterial({color:0xd9d9d9});
+[[RW/2,-3,RW+12,6],[-3,RD/2,6,RD],[RW+3,RD/2,6,RD]].forEach(([x,z,w,d])=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,WH,d),wm);m.position.set(x,WH/2,z);m.receiveShadow=true;SC.add(m)});
+const aisle=new THREE.Mesh(new THREE.BoxGeometry(RW+400,1,300),new THREE.MeshStandardMaterial({color:0x111111}));aisle.position.set(RW/2,-1.5,RD+150);SC.add(aisle);
+const grp=new THREE.Group();SC.add(grp);
+const TL=new THREE.TextureLoader();
+function mat(c){return new THREE.MeshStandardMaterial({color:new THREE.Color(c),roughness:.7})}
+const NERO='#1c1c1c',LEGNO='#8a6a4a';
+const VERO={desk:NERO,t1:NERO,t2:NERO,t3:NERO,b1:NERO,b2:NERO,cf:NERO,e1:NERO,e2:NERO,tl:NERO,cu:NERO,tv:NERO,li:'#6b4a32',sa:'#4a4a4a',k24:'#f2f2f2',tt:LEGNO,ar:NERO,pt:NERO,pr:NERO};
+const colore=e=>e.id.startsWith('s')&&!VERO[e.id]?LEGNO:(VERO[e.id]||e.c);
+function add(mesh,e,y){mesh.castShadow=true;mesh.receiveShadow=true;mesh.position.y=y;return mesh}
+function build(){
+ grp.clear();let A=[];try{A=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(_){}
+ A.forEach(e=>{
+  const cx=e.x+e.w/2,cz=e.y+e.d/2;if(cx<0||cx>RW||cz<0||cz>RD)return;
+  const g=new THREE.Group();g.position.set(cx,0,cz);g.rotation.y=-(e.r||0)*Math.PI/180;grp.add(g);
+  const m=mat(colore(e));
+  if(e.img){ // forex: pannello con la grafica su tutte e due le facce
+   const t=TL.load((window.FXDATA&&FXDATA[e.img])||('img/forex/'+e.img+'.jpg'));t.colorSpace=THREE.SRGBColorSpace;
+   const fm=new THREE.MeshStandardMaterial({map:t,roughness:.8});const side=new THREE.MeshStandardMaterial({color:0xeeeeee});
+   g.add(add(new THREE.Mesh(new THREE.BoxGeometry(e.w,e.h,Math.max(e.d,2)),[side,side,side,side,fm,fm]),e,e.h/2));return}
+  if(/^s\d+$/.test(e.id)){g.add(add(new THREE.Mesh(new THREE.BoxGeometry(e.w,3,e.d),mat(LEGNO)),e,73));
+   [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>g.add(add(new THREE.Mesh(new THREE.BoxGeometry(2.5,72,2.5),mat(NERO)),e,36).translateX(a*(e.w/2-2)).translateZ(b*(e.d/2-2))));
+   const sb=add(new THREE.Mesh(new THREE.BoxGeometry(e.w,30,2),mat(NERO)),e,90);sb.position.z=-e.d/2;g.add(sb);return}
+  if(e.shape==='tvp'){const b=add(new THREE.Mesh(new THREE.BoxGeometry(60,4,50),mat('#2a2a2a')),e,2);g.add(b);
+   g.add(add(new THREE.Mesh(new THREE.BoxGeometry(6,120,6),mat('#2a2a2a')),e,62));
+   const sc=add(new THREE.Mesh(new THREE.BoxGeometry(e.w,65,4),mat('#0a0a0a')),e,135);sc.position.z=3;g.add(sc);
+   const v=new THREE.Mesh(new THREE.BoxGeometry(e.w-4,61,0.5),new THREE.MeshBasicMaterial({color:0x2b3a4a}));v.position.set(0,135,5.4);g.add(v);return}
+  if(e.shape==='round'){g.add(add(new THREE.Mesh(new THREE.CylinderGeometry(e.w/2,e.w/2,4,40),m),e,e.h-2));g.add(add(new THREE.Mesh(new THREE.CylinderGeometry(4,4,e.h-4,12),mat('#222')),e,(e.h-4)/2));return}
+  if(/^t[123]$/.test(e.id)){ // tavolo alto: piano e gambe
+   g.add(add(new THREE.Mesh(new THREE.BoxGeometry(e.w,4,e.d),mat(LEGNO)),e,e.h-2));
+   [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>g.add(add(new THREE.Mesh(new THREE.BoxGeometry(4,e.h-4,4),mat('#222')),e,(e.h-4)/2).translateX(a*(e.w/2-4)).translateZ(b*(e.d/2-4))));return}
+  if(e.shape==='I'){const t=5;
+   [[0,-e.d/2+t/2,e.w,t],[0,e.d/2-t/2,e.w,t],[0,0,t,e.d]].forEach(([x,z,w,d])=>{const p=add(new THREE.Mesh(new THREE.BoxGeometry(w,e.h,d),m),e,e.h/2);p.position.x=x;p.position.z=z;g.add(p)});
+   [-1,1].forEach(sx=>{const sh=add(new THREE.Mesh(new THREE.BoxGeometry(e.w/2-t,3,e.d-2*t),mat('#7a5a3a')),e,90);sh.position.x=sx*(e.w/4+t/4);g.add(sh)});return}
+  if(e.shape==='cubi'){const p=add(new THREE.Mesh(new THREE.BoxGeometry(15,e.h,e.d),m),e,e.h/2);p.position.x=-e.w/2+7.5;g.add(p);
+   const y0=(e.d-4*40)/2;for(let i=0;i<4;i++)for(let j=0;j<3;j++){const c=add(new THREE.Mesh(new THREE.BoxGeometry(30,34,34),mat('#1b1b1b')),e,60+j*40);c.position.x=-e.w/2+30;c.position.z=-e.d/2+y0+i*40+20;g.add(c);
+    const led=new THREE.Mesh(new THREE.BoxGeometry(26,1,30),new THREE.MeshBasicMaterial({color:0xffd9a0}));led.position.set(c.position.x+2,c.position.y+16,c.position.z);g.add(led)}return}
+  if(e.shape==='salotto'){[[45,45],[205,45],[55,155],[200,140]].forEach(([x,z])=>{const p=add(new THREE.Mesh(new THREE.BoxGeometry(62,70,62),mat('#3a3a3a')),e,35);p.position.set(x-e.w/2,35,z-e.d/2);g.add(p)});
+   const tv=add(new THREE.Mesh(new THREE.BoxGeometry(46,45,46),mat('#2a2a2a')),e,22);tv.position.set(126-e.w/2,22,101-e.d/2);g.add(tv);return}
+  g.add(add(new THREE.Mesh(new THREE.BoxGeometry(e.w,e.h,e.d),m),e,e.h/2));
+  if(e.id==='b1'||e.id==='b2'){const gl=new THREE.Mesh(new THREE.BoxGeometry(e.w-4,1,e.d-4),new THREE.MeshBasicMaterial({color:0xf3ead8}));gl.position.y=e.h+0.6;g.add(gl)}
+  if(e.id==='tv'){const sc=new THREE.Mesh(new THREE.BoxGeometry(110,62,1),new THREE.MeshStandardMaterial({color:0x0a0a0a,roughness:.2}));sc.position.set(0,125,e.d/2+0.6);g.add(sc)}
+ });
+}
+function view(v){const c={front:[RW/2+60,170,RD+520],top:[RW/2,900,RD/2+1],side:[RW+520,220,RD/2+120]}[v];CAM.position.set(...c);OC.target.set(RW/2,v==='top'?0:70,RD/2);OC.update()}
+document.querySelectorAll('.bt button').forEach(b=>b.onclick=()=>view(b.dataset.v));
+addEventListener('storage',ev=>{if(ev.key===KEY)build()});
+addEventListener('resize',()=>{CAM.aspect=innerWidth/innerHeight;CAM.updateProjectionMatrix();R.setSize(innerWidth,innerHeight)});
+build();view('front');
+(function loop(){requestAnimationFrame(loop);OC.update();R.render(SC,CAM)})();
+</script>
+</body></html>
