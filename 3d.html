@@ -10,6 +10,9 @@ header{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space
 .logo{width:62px;mix-blend-mode:screen}
 .b2d{background:#151515;color:#fff;border:2px solid #b4cd45;border-radius:4px;padding:10px 26px;margin-right:34px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:.5px;cursor:pointer}
 .b2d:hover{background:#b4cd45;color:#000}
+.bs{border-color:#555;margin-right:12px}
+@page{size:A4 landscape;margin:8mm}
+@media print{.b2d,.bt,.ver{display:none}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .bt{position:absolute;right:30px;bottom:24px;display:flex;gap:8px;z-index:2}
 .bt button{background:#151515;color:#ddd;border:1px solid #333;border-radius:4px;padding:8px 14px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:16px;letter-spacing:.5px;cursor:pointer}
 .bt button:hover{border-color:#b4cd45;color:#fff}
@@ -19,16 +22,16 @@ header{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space
 <script src="img/forex/forex-dati.js"></script>
 <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
 </head><body>
-<header><div><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div><div style="display:flex;align-items:center;pointer-events:auto"><button class="b2d" onclick="window.open('index.html','fimmapianta')">Vedi in pianta</button><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div></header>
+<header><div><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div><div style="display:flex;align-items:center;pointer-events:auto"><button class="b2d bs" onclick="print()">Stampa</button><button class="b2d" onclick="window.open('index.html','fimmapianta')">Vedi in pianta</button><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div></header>
 <div id="c"></div>
 <div class="bt"><button data-v="front">Dal corridoio</button><button data-v="top">Dall'alto</button><button data-v="side">Di lato</button></div>
-<div class="ver">v0.2.0</div>
+<div class="ver">v0.3.4</div>
 <script type="module">
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 const KEY='fimma-mu27-pianta-v9-3d', RW=388, RD=588, WH=183;
 const box=document.getElementById('c');
-const R=new THREE.WebGLRenderer({antialias:true});R.setPixelRatio(devicePixelRatio);R.setSize(innerWidth,innerHeight);R.shadowMap.enabled=true;box.appendChild(R.domElement);
+const R=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});R.setPixelRatio(devicePixelRatio);R.setSize(innerWidth,innerHeight);R.shadowMap.enabled=true;box.appendChild(R.domElement);
 const SC=new THREE.Scene();SC.background=new THREE.Color(0x000000);
 const CAM=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,1,5000);
 const OC=new OrbitControls(CAM,R.domElement);OC.target.set(RW/2,70,RD/2);OC.maxPolarAngle=Math.PI/2-0.02;

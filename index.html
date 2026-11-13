@@ -69,6 +69,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 .dim{font-family:"Cond","DIN Condensed",sans-serif;font-size:17px;fill:#9a9a9a;letter-spacing:.5px}
 .rot{cursor:pointer}
 @media print{
+ .b3d{display:none}
  @page{size:A4 landscape;margin:8mm}
  .wrap{height:auto;grid-template-columns:1fr 250px}
  main{height:170mm}
@@ -82,7 +83,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 <div class="wrap">
 <header>
  <div class="brand"><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div>
- <div class="hr"><button class="b3d bi" onclick="document.getElementById('ist').scrollIntoView({behavior:'smooth'})">Come si usa</button><button class="b3d" onclick="exp3d();window.open('3d.html','fimma3d')">Apri 3D</button><div class="stats"><b id="occ">0,0 m²</b>occupati dagli elementi</div><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div>
+ <div class="hr"><button class="b3d bi" onclick="print()">Stampa</button><button class="b3d bi" onclick="document.getElementById('ist').scrollIntoView({behavior:'smooth'})">Come si usa</button><button class="b3d" onclick="exp3d();window.open('3d.html','fimma3d')">Apri 3D</button><div class="stats"><b id="occ">0,0 m²</b>occupati dagli elementi</div><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div>
 </header>
 <main><div id="rsz"><span class="rn"></span><label>Larghezza <input id="rw" type="number" min="5" step="5"> cm</label><label><span id="rdl">Profondità</span> <input id="rd" type="number" min="2" step="5"> cm</label><button id="r0">Misura originale</button></div><div id="prev"><img><span></span></div><svg id="plan" viewBox="-60 -80 1520 900" preserveAspectRatio="xMidYMid meet"></svg></main>
 <aside>
@@ -103,7 +104,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 <div><b>Annullare</b>Indietro annulla l'ultima mossa, Idea base riporta alla disposizione di partenza. La disposizione resta salvata in questo browser.</div>
 <button class="btop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Torna alla pianta</button>
 </section>
-<div class="ver">v0.3.3</div>
+<div class="ver">v0.3.4</div>
 
 <script>
 window.name='fimmapianta';
