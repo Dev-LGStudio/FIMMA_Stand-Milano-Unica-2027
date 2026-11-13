@@ -69,14 +69,12 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 .dim{font-family:"Cond","DIN Condensed",sans-serif;font-size:17px;fill:#9a9a9a;letter-spacing:.5px}
 .rot{cursor:pointer}
 @media print{
- .b3d{display:none}
- @page{size:A4 landscape;margin:8mm}
- .wrap{height:auto;grid-template-columns:1fr 250px}
- main{height:170mm}
- .bt,.ver{display:none}
- .it.off{display:none}
+ @page{size:A4 portrait;margin:10mm}
+ .b3d,aside,.ist,.ver,#rsz,#prev,.rotg{display:none!important}
+ .wrap{display:block;height:auto}
+ header{padding:0 0 6mm}
+ main{height:235mm;padding:0}
  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
- .rotg{display:none}
 }
 </style></head>
 <body>
@@ -104,7 +102,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 <div><b>Annullare</b>Indietro annulla l'ultima mossa, Idea base riporta alla disposizione di partenza. La disposizione resta salvata in questo browser.</div>
 <button class="btop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Torna alla pianta</button>
 </section>
-<div class="ver">v0.3.4</div>
+<div class="ver">v0.3.5</div>
 
 <script>
 window.name='fimmapianta';
@@ -291,5 +289,8 @@ function list(){fxcat();rsz();const L=document.getElementById('list');
  L.querySelectorAll('.it').forEach(d=>d.classList.toggle('off',!S[d.dataset.id].on));
 }
 all();marks();exp3d();
+const VB=svg.getAttribute('viewBox');
+addEventListener('beforeprint',()=>{sel=null;all();svg.setAttribute('viewBox','-45 -45 478 690')});
+addEventListener('afterprint',()=>svg.setAttribute('viewBox',VB));
 </script>
 </body></html>
