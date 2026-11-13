@@ -53,6 +53,9 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 .hr{display:flex;align-items:flex-end}
 .b3d{background:#151515;color:#fff;border:2px solid #b4cd45;border-radius:4px;padding:10px 26px;margin-right:34px;align-self:center;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:.5px;cursor:pointer}
 .b3d:hover{background:#b4cd45;color:#000}
+.bi{border-color:#555;margin-right:12px}
+.btop{grid-column:1/-1;justify-self:start;background:#151515;color:#fff;border:2px solid #b4cd45;border-radius:4px;padding:10px 26px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:20px;letter-spacing:.5px;cursor:pointer}
+.btop:hover{background:#b4cd45;color:#000}
 .tabs{display:flex;gap:10px;align-self:center}
 .tabs button{background:#151515;color:#fff;border:2px solid #333;border-radius:4px;padding:10px 22px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:.5px;cursor:pointer}
 .ver{position:fixed;left:12px;bottom:6px;font-size:9px;color:#555}
@@ -79,7 +82,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 <div class="wrap">
 <header>
  <div class="brand"><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div>
- <div class="hr"><button class="b3d" onclick="exp3d();window.open('3d.html','fimma3d')">Apri 3D</button><div class="stats"><b id="occ">0,0 m²</b>occupati dagli elementi</div><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div>
+ <div class="hr"><button class="b3d bi" onclick="document.getElementById('ist').scrollIntoView({behavior:'smooth'})">Come si usa</button><button class="b3d" onclick="exp3d();window.open('3d.html','fimma3d')">Apri 3D</button><div class="stats"><b id="occ">0,0 m²</b>occupati dagli elementi</div><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div>
 </header>
 <main><div id="rsz"><span class="rn"></span><label>Larghezza <input id="rw" type="number" min="5" step="5"> cm</label><label><span id="rdl">Profondità</span> <input id="rd" type="number" min="2" step="5"> cm</label><button id="r0">Misura originale</button></div><div id="prev"><img><span></span></div><svg id="plan" viewBox="-60 -80 1520 900" preserveAspectRatio="xMidYMid meet"></svg></main>
 <aside>
@@ -90,7 +93,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
  <div class="bt"><button id="undoBtn">Indietro</button><button id="ideaBtn">Idea base</button><button id="rotBtn">Ruota 90°</button><button id="resetBtn">Ripristina</button><button onclick="print()">Stampa</button><button onclick="exp3d();window.open('3d.html','fimma3d')">Vista 3D</button></div>
 </aside>
 </div>
-<section class="ist"><h3>Come si usa</h3>
+<section class="ist" id="ist"><h3>Come si usa</h3>
 <div><b>Spostare</b>Trascina gli elementi dentro lo stand. Il bordo rosso indica che due elementi si sovrappongono o escono dalle pareti.</div>
 <div><b>Ruotare</b>Clicca un elemento: il pallino verde lo ruota di 90°.</div>
 <div><b>Ridimensionare</b>Clicca un elemento e scrivi le misure nuove nella barra in basso a sinistra: larghezza e profondità, per le grafiche larghezza e altezza. L'elemento cambiato porta la scritta Ridimensionato; Misura originale lo riporta com'era.</div>
@@ -98,8 +101,9 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 <div><b>Togliere e rimettere</b>Nella scheda Elementi un clic sul nome toglie o rimette l'elemento.</div>
 <div><b>Vista 3D</b>Apri 3D mostra lo stand in tre dimensioni e si aggiorna mentre sposti gli elementi.</div>
 <div><b>Annullare</b>Indietro annulla l'ultima mossa, Idea base riporta alla disposizione di partenza. La disposizione resta salvata in questo browser.</div>
+<button class="btop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Torna alla pianta</button>
 </section>
-<div class="ver">v0.3.2</div>
+<div class="ver">v0.3.3</div>
 
 <script>
 window.name='fimmapianta';
