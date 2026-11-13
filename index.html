@@ -99,7 +99,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 <div><b>Vista 3D</b>Apri 3D mostra lo stand in tre dimensioni e si aggiorna mentre sposti gli elementi.</div>
 <div><b>Annullare</b>Indietro annulla l'ultima mossa, Idea base riporta alla disposizione di partenza. La disposizione resta salvata in questo browser.</div>
 </section>
-<div class="ver">v0.3.1</div>
+<div class="ver">v0.3.2</div>
 
 <script>
 window.name='fimmapianta';
@@ -116,7 +116,7 @@ const EL=[
  {id:'e2',n:'Separè con bottoni 2',w:65,d:112,c:'#c43fc4',shape:'I'},
  {id:'tl',n:'Parete storia con tirella bottoni',w:300,d:15,c:'#3a4fd6'},
  {id:'cu',n:'Parete salotto con vetrina a 12 cubi LED',w:45,d:220,c:'#3c8a4a',shape:'cubi'},
- {id:'tv',n:'Parete con TV',w:206,d:20,c:'#3c8a4a'},
+ {id:'tv',n:'Mobile TV',w:206,d:20,c:'#3c8a4a'},
  {id:'li',n:'Parete a listelli di legno del salotto',w:15,d:200,c:'#3c8a4a'},
  {id:'sa',n:'Salotto · 4 poltrone e tavolino',w:252,d:200,c:'#9a9a9a',shape:'salotto'},
  {id:'k24',n:'Kallax 2×4',w:77,d:39,c:'#e4e4e4',dark:1},
@@ -128,7 +128,7 @@ const FX=[["Milano Unica 2026", [{"id": "fx2", "n": "Alfa New Classic", "w": 98,
 FX.forEach(([g,it])=>it.forEach(f=>EL.push({id:f.id,n:f.n+' · '+g,w:f.w,d:10,c:'#ffffff',sz:f.w+' cm · h '+f.h,fx:f,g})));
 for(let i=1;i<=10;i++)EL.push({id:'s'+i,n:'Seduta alta',w:35,d:35,c:'#5a5a5a',grp:'sg'});
 EL.forEach(e=>{e.w0=e.w;e.d0=e.d});
-const RW=388,RD=588,SX=830,SNAP=5,KEY='fimma-mu27-pianta-v8';
+const RW=388,RD=588,SX=830,SNAP=5,KEY='fimma-mu27-pianta-v9';
 const NS='http://www.w3.org/2000/svg';
 const svg=document.getElementById('plan');
 function mk(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
@@ -140,7 +140,7 @@ function initial(){
  return s;
 }
 function idea(){const s=initial();const P={e1:[23,99,90],k24:[95,99,90],tv:[247,128,0],t1:[251,240,0],s1:[276,200,0],s2:[205,260,0],s3:[342,260,0],s4:[271,330,0],t2:[145,391,0],s5:[170,345,0],s6:[99,416,0],s7:[236,411,0],s8:[165,482,0],cu:[3,367,0],b2:[251,538,0],b1:[478,124,0],cf:[468,33,90],e2:[590,3,90],sa:[710,63,0],li:[609,84,90],tl:[712,401,0],desk:[579,438,0],t3:[1152,-2,0],tt:[830,560,0],ar:[930,560,0],pt:[1030,560,0],pr:[1180,580,0],s9:[1300,560,0],s10:[1350,560,0]};
- for(const k in P)s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};return s}
+ for(const k in P)s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};s.tv.w=120;s.tv.x=Math.round(s.tv.x+(206-120)/2);return s}
 function prop2(){const s=initial();const P={caf:0,cf:[144,0,0],t1:[70,110,0],s1:[32,133,0],s2:[153,133,0],t2:[240,110,0],s3:[202,133,0],s4:[323,133,0],e1:[64,216,90],e2:[260,216,90],b1:[95,335,90],b2:[95,435,90],cu:[0,330,0],desk:[300,540,0]};
  for(const k in P)if(P[k])s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};return s}
 let SLOT='A';
@@ -200,7 +200,7 @@ function draw(e){
   if(e.shape==='cubi'){bd.setAttribute('fill','rgba(0,0,0,0)');bd.setAttribute('stroke','none');
    mk('rect',{x:0,y:0,width:15,height:e.d,fill:e.c},g);const y0=(e.d-4*40)/2;for(let i=0;i<4;i++)mk('rect',{x:15,y:y0+i*40+3,width:30,height:34,fill:'#1d1d1d',stroke:e.c,'stroke-width':2},g)}
   const lb=mk('text',{class:'lbl'+(e.dark?' d':''),x:e.w/2,y:e.d/2+4,'text-anchor':'middle'},g);
-  lb.textContent=e.grp?'':e.n.replace(/ ·.*$/,'').replace('Banco reception FIMMA','Desk').replace(/^Salotto.*/,'Salotto').replace('Pannello removibile davanti al bancone','Pannello bancone').replace('TV 50″ con piantana','TV').replace(/ · Milano Unica (20\d\d)$/,' $1').replace(/ · Fiera AA (20\d\d)$/,' AA $1').replace('Forex settori e mappa Europa','Forex mappa').replace('Forex Alfa New Classic','Forex Alfa').replace('Forex timeline 65 anni','Forex 65 anni').replace('Parete storia con tirella bottoni','Storia').replace('Vetrina prodotti a cubi LED','Cubi').replace('Mobiletto caffè','Caffè').replace('Separè con bottoni','Separè').replace('Parete con TV','TV').replace('Parete a listelli di legno del salotto','Listelli').replace('Parete salotto con vetrina a 12 cubi LED','Cubi');
+  lb.textContent=e.grp?'':e.n.replace(/ ·.*$/,'').replace('Banco reception FIMMA','Desk').replace(/^Salotto.*/,'Salotto').replace('Pannello removibile davanti al bancone','Pannello bancone').replace('TV 50″ con piantana','TV').replace(/ · Milano Unica (20\d\d)$/,' $1').replace(/ · Fiera AA (20\d\d)$/,' AA $1').replace('Forex settori e mappa Europa','Forex mappa').replace('Forex Alfa New Classic','Forex Alfa').replace('Forex timeline 65 anni','Forex 65 anni').replace('Vetrina prodotti a cubi LED','Cubi').replace('Mobiletto caffè','Caffè').replace('Separè con bottoni','Separè').replace('Parete storia con tirella bottoni','Parete storia').replace('Parete a listelli di legno del salotto','Listelli').replace('Parete salotto con vetrina a 12 cubi LED','Cubi');
   if(e.d<25)lb.setAttribute('y',e.d+13),lb.setAttribute('class','lbl');
   if(e.w<50&&!e.grp){lb.setAttribute('x',e.w+6);lb.setAttribute('text-anchor','start');lb.setAttribute('class','lbl')}
   if(!e.grp){const rz=S[e.id]&&(S[e.id].w||S[e.id].d||S[e.id].h);const sz=mk('text',{class:lb.getAttribute('class'),x:lb.getAttribute('x'),y:+lb.getAttribute('y')+11,'text-anchor':lb.getAttribute('text-anchor'),'font-size':9,opacity:.8},g);sz.textContent=e.fx?(e.w+' cm · h '+(S[e.id].h||e.fx.h)):((S[e.id].w||S[e.id].d)?(e.w+' × '+e.d+' cm'):(e.sz||(e.w+' × '+e.d+' cm')));
