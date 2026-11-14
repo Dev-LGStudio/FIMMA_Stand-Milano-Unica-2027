@@ -6,10 +6,10 @@
 @font-face{font-family:"Cond";src:local("DIN Condensed Bold"),local("DINCondensed-Bold")}
 *{box-sizing:border-box}
 html,body{margin:0;background:#000;color:#fff;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
-.wrap{display:grid;grid-template-columns:1fr 330px;grid-template-rows:auto 1fr;height:100vh}
+.wrap{display:grid;grid-template-columns:1fr 370px;grid-template-rows:auto 1fr;height:100vh}
 .ist{border-top:1px solid #222;padding:26px 34px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px 34px}
 .ist h3{grid-column:1/-1;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:24px;font-weight:normal;letter-spacing:.5px;margin:0}
-.ist div{font-size:13px;line-height:1.5;color:#ccc}
+.ist div{font-size:15px;line-height:1.5;color:#ccc}
 .ist b{display:block;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:17px;font-weight:normal;color:#b4cd45;letter-spacing:.5px;margin-bottom:3px}
 @media print{.ist{display:none}}
 header{grid-column:1/3;display:flex;align-items:flex-end;justify-content:space-between;padding:22px 34px 8px}
@@ -19,23 +19,23 @@ header{grid-column:1/3;display:flex;align-items:flex-end;justify-content:space-b
 .brand .s{font-size:19px;color:#bbb;margin-top:6px;letter-spacing:.5px}
 .stats{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;font-size:19px;text-align:right;color:#bbb;letter-spacing:.5px}
 .stats b{color:#fff;font-size:30px;display:block}
-main{position:relative;min-height:0;padding:0 20px 70px}
+main{position:relative;min-height:0;padding:0 10px 58px}
 svg#plan{width:100%;height:100%;display:block;touch-action:none;user-select:none}
 aside{border-left:1px solid #222;padding:8px 22px 70px;overflow:auto;position:relative}
 aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;font-size:21px;letter-spacing:.5px;margin:14px 0 8px;color:#fff;font-weight:normal}
-.it{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1c1c1c;font-size:13px;cursor:pointer}
+.it{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #1c1c1c;font-size:15px;cursor:pointer}
 .it .sw{width:16px;height:16px;border-radius:3px}
-.it .m{color:#888;font-size:11.5px}
+.it .m{color:#999;font-size:13.5px}
 .it.off{opacity:.35}
 .stabs{display:flex;gap:6px;margin:10px 0 6px;position:sticky;top:0;background:#000;padding:6px 0;z-index:2}
 .stabs button{flex:1;background:#151515;color:#bbb;border:2px solid #333;border-radius:4px;padding:8px 4px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:18px;letter-spacing:.5px;cursor:pointer}
 .stabs button.on{border-color:#b4cd45;color:#fff}
-.fg{font-size:12px;color:#9a9a9a;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fg{font-size:13.5px;color:#9a9a9a;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.5px}
 .fxg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .fxi{cursor:pointer;border:2px solid transparent;border-radius:4px;padding:3px;background:#111}
 .fxi img{width:100%;height:84px;object-fit:contain;display:block;background:#1a1a1a}
-.fxi span{display:block;font-size:10.5px;line-height:1.25;margin-top:3px;color:#ddd}
-.fxi small{display:block;font-size:9.5px;color:#888}
+.fxi span{display:block;font-size:12.5px;line-height:1.25;margin-top:3px;color:#ddd}
+.fxi small{display:block;font-size:11.5px;color:#999}
 .fxi.on{border-color:#b4cd45}
 #rsz{position:absolute;left:24px;bottom:16px;background:#111;border:1px solid #333;border-radius:4px;padding:8px 10px;display:none;gap:12px;align-items:center;font-size:12px;color:#ddd}
 #rsz .rn{font-weight:600;color:#fff}
@@ -45,7 +45,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 #prev img{width:100%;max-height:230px;object-fit:contain;display:block}
 #prev span{display:block;font-size:11px;margin-top:4px;color:#ddd}
 .it .n{line-height:1.25}
-.it .q{font-size:10.5px;color:#d9b85a}
+.it .q{font-size:12px;color:#d9b85a}
 .bt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
 .bt button{flex:1;background:#151515;color:#ddd;border:1px solid #333;border-radius:4px;padding:8px 6px;font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;font-size:16px;letter-spacing:.5px;cursor:pointer}
 .bt button:hover{border-color:#8cc63f;color:#fff}
@@ -53,7 +53,12 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 .hr{display:flex;align-items:flex-end}
 .b3d{background:#151515;color:#fff;border:2px solid #b4cd45;border-radius:4px;padding:10px 26px;margin-right:34px;align-self:center;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:.5px;cursor:pointer}
 .b3d:hover{background:#b4cd45;color:#000}
+.b3dp{background:#b4cd45;color:#000;box-shadow:0 0 18px rgba(180,205,69,.45)}
+.b3dp:hover{background:#d2e86a}
 .bi{border-color:#555;margin-right:12px}
+.bfx{margin-right:12px}
+.bfx.on{background:#b4cd45;color:#000}
+.b3d{padding:10px 20px}
 .btop{grid-column:1/-1;justify-self:start;background:#151515;color:#fff;border:2px solid #b4cd45;border-radius:4px;padding:10px 26px;font-family:"DIN Condensed",sans-serif;text-transform:uppercase;font-size:20px;letter-spacing:.5px;cursor:pointer}
 .btop:hover{background:#b4cd45;color:#000}
 .tabs{display:flex;gap:10px;align-self:center}
@@ -64,7 +69,7 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 @keyframes fl{from{stroke:#b4cd45;stroke-width:2}to{stroke:#b4cd45;stroke-width:9}}
 .el.sel .body{stroke:#b4cd45;stroke-width:2.5}
 .el.bad .body{stroke:#ff5a4a;stroke-width:3}
-.lbl{font-size:11px;fill:#fff;pointer-events:none;font-family:"Helvetica Neue",Arial,sans-serif}
+.lbl{font-size:12px;fill:#fff;pointer-events:none;font-family:"Helvetica Neue",Arial,sans-serif}
 .lbl.d{fill:#111}
 .dim{font-family:"Cond","DIN Condensed",sans-serif;font-size:17px;fill:#9a9a9a;letter-spacing:.5px}
 .rot{cursor:pointer}
@@ -81,9 +86,9 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 <div class="wrap">
 <header>
  <div class="brand"><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div>
- <div class="hr"><button class="b3d bi" onclick="print()">Stampa</button><button class="b3d bi" onclick="document.getElementById('ist').scrollIntoView({behavior:'smooth'})">Come si usa</button><button class="b3d" onclick="exp3d();window.open('3d.html','fimma3d')">Apri 3D</button><div class="stats"><b id="occ">0,0 m²</b>occupati dagli elementi</div><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div>
+ <div class="hr"><button class="b3d bi" onclick="undo()">Indietro</button><button class="b3d bi" onclick="print()">Stampa</button><button class="b3d bfx" id="topG" onclick="tab('G')">Grafiche forex</button><button class="b3d bi" onclick="document.getElementById('ist').scrollIntoView({behavior:'smooth'})">Come si usa</button><button class="b3d b3dp" onclick="exp3d();window.open('3d.html','fimma3d')"><svg viewBox="0 0 24 24" width="20" height="20" style="vertical-align:-3px;margin-right:8px"><path d="M12 2 21 7v10l-9 5-9-5V7z M3 7l9 5 9-5 M12 12v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Apri 3D</button><div class="stats"><b id="occ">0,0 m²</b>occupati dagli elementi</div><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div>
 </header>
-<main><div id="rsz"><span class="rn"></span><label>Larghezza <input id="rw" type="number" min="5" step="5"> cm</label><label><span id="rdl">Profondità</span> <input id="rd" type="number" min="2" step="5"> cm</label><button id="r0">Misura originale</button></div><div id="prev"><img><span></span></div><svg id="plan" viewBox="-60 -80 1520 900" preserveAspectRatio="xMidYMid meet"></svg></main>
+<main><div id="rsz"><span class="rn"></span><label>Larghezza <input id="rw" type="number" min="5" step="5"> cm</label><label><span id="rdl">Profondità</span> <input id="rd" type="number" min="2" step="5"> cm</label><button id="r0">Misura originale</button></div><div id="prev"><img><span></span></div><svg id="plan" viewBox="-48 -42 1150 680" preserveAspectRatio="xMidYMid meet"></svg></main>
 <aside>
  <div class="stabs"><button id="tabE" class="on">Elementi</button><button id="tabG">Grafiche forex</button></div>
  <div id="paneE">
@@ -93,16 +98,16 @@ aside h3{font-family:"Cond","DIN Condensed",sans-serif;text-transform:uppercase;
 </aside>
 </div>
 <section class="ist" id="ist"><h3>Come si usa</h3>
+<div><b>Grafiche forex</b>Nella scheda Grafiche forex trascina una miniatura sulla parete: il pannello si aggancia da solo.</div>
 <div><b>Spostare</b>Trascina gli elementi dentro lo stand. Il bordo rosso indica che due elementi si sovrappongono o escono dalle pareti.</div>
 <div><b>Ruotare</b>Clicca un elemento: il pallino verde lo ruota di 90°.</div>
 <div><b>Ridimensionare</b>Clicca un elemento e scrivi le misure nuove nella barra in basso a sinistra: larghezza e profondità, per le grafiche larghezza e altezza. L'elemento cambiato porta la scritta Ridimensionato; Misura originale lo riporta com'era.</div>
-<div><b>Grafiche forex</b>Nella scheda Grafiche forex trascina una miniatura sulla parete: il pannello si aggancia da solo.</div>
 <div><b>Togliere e rimettere</b>Nella scheda Elementi un clic sul nome toglie o rimette l'elemento.</div>
 <div><b>Vista 3D</b>Apri 3D mostra lo stand in tre dimensioni e si aggiorna mentre sposti gli elementi.</div>
 <div><b>Annullare</b>Indietro annulla l'ultima mossa, Idea base riporta alla disposizione di partenza. La disposizione resta salvata in questo browser.</div>
 <button class="btop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Torna alla pianta</button>
 </section>
-<div class="ver">v0.3.5</div>
+<div class="ver">v0.3.9</div>
 
 <script>
 window.name='fimmapianta';
@@ -131,19 +136,19 @@ const FX=[["Milano Unica 2026", [{"id": "fx2", "n": "Alfa New Classic", "w": 98,
 FX.forEach(([g,it])=>it.forEach(f=>EL.push({id:f.id,n:f.n+' · '+g,w:f.w,d:10,c:'#ffffff',sz:f.w+' cm · h '+f.h,fx:f,g})));
 for(let i=1;i<=10;i++)EL.push({id:'s'+i,n:'Seduta alta',w:35,d:35,c:'#5a5a5a',grp:'sg'});
 EL.forEach(e=>{e.w0=e.w;e.d0=e.d});
-const RW=388,RD=588,SX=830,SNAP=5,KEY='fimma-mu27-pianta-v9';
+const RW=388,RD=588,SX=470,SNAP=5,KEY='fimma-mu27-pianta-v9';
 const NS='http://www.w3.org/2000/svg';
 const svg=document.getElementById('plan');
 function mk(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
 
 function initial(){
  let x=SX,y=0,row=0;const s={};
- EL.forEach(e=>{if(e.fx){s[e.id]={x:RW/2-e.w/2,y:RD-40,r:0,on:0};return}const W=e.stools?e.w+80:e.w;if(x+W>SX+580){x=SX;y+=row+28;row=0}
+ EL.forEach(e=>{if(e.fx){s[e.id]={x:RW/2-e.w/2,y:RD-40,r:0,on:0};return}const W=e.stools?e.w+80:e.w;if(x+W>SX+600){x=SX;y+=row+28;row=0}
   s[e.id]={x:x+(e.stools?40:0),y,r:0,on:1};x+=W+24;row=Math.max(row,e.d)});
  return s;
 }
-function idea(){const s=initial();const P={e1:[23,99,90],k24:[95,99,90],tv:[247,128,0],t1:[251,240,0],s1:[276,200,0],s2:[205,260,0],s3:[342,260,0],s4:[271,330,0],t2:[145,391,0],s5:[170,345,0],s6:[99,416,0],s7:[236,411,0],s8:[165,482,0],cu:[3,367,0],b2:[251,538,0],b1:[478,124,0],cf:[468,33,90],e2:[590,3,90],sa:[710,63,0],li:[609,84,90],tl:[712,401,0],desk:[579,438,0],t3:[1152,-2,0],tt:[830,560,0],ar:[930,560,0],pt:[1030,560,0],pr:[1180,580,0],s9:[1300,560,0],s10:[1350,560,0]};
- for(const k in P)s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};s.tv.w=120;s.tv.x=Math.round(s.tv.x+(206-120)/2);return s}
+function idea(){const s=initial();const P={desk:[500,310,0],t1:[251,240,0],t2:[145,391,0],t3:[845,45,0],b1:[478,124,0],b2:[251,538,0],cf:[468,33,90],e1:[23,99,90],e2:[590,3,90],tl:[485,410,0],cu:[3,367,0],tv:[265,105,0],li:[609,84,90],sa:[820,210,0],k24:[95,99,90],tt:[520,525,0],ar:[655,535,0],pt:[805,530,0],s1:[276,200,0],s2:[205,260,0],s3:[342,260,0],s4:[271,330,0],s5:[170,345,0],s6:[99,416,0],s7:[236,411,0],s8:[165,482,0],s9:[995,535,0],s10:[1055,535,0]};
+ for(const k in P)s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};s.tv.w=120;return s}
 function prop2(){const s=initial();const P={caf:0,cf:[144,0,0],t1:[70,110,0],s1:[32,133,0],s2:[153,133,0],t2:[240,110,0],s3:[202,133,0],s4:[323,133,0],e1:[64,216,90],e2:[260,216,90],b1:[95,335,90],b2:[95,435,90],cu:[0,330,0],desk:[300,540,0]};
  for(const k in P)if(P[k])s[k]={x:P[k][0],y:P[k][1],r:P[k][2],on:1};return s}
 let SLOT='A';
@@ -171,7 +176,7 @@ let t=mk('text',{x:RW/2,y:RD+34,'text-anchor':'middle',class:'dim'},g0);t.textCo
 t=mk('text',{x:RW/2,y:-18,'text-anchor':'middle',class:'dim'},g0);t.textContent='PARETE DI FONDO · 388 CM';
 t=mk('text',{x:-22,y:RD/2,'text-anchor':'middle',class:'dim',transform:`rotate(-90 -22 ${RD/2})`},g0);t.textContent='588 CM';
 t=mk('text',{x:RW+30,y:RD/2,'text-anchor':'middle',class:'dim',transform:`rotate(90 ${RW+30} ${RD/2})`},g0);t.textContent='588 CM';
-t=mk('text',{x:SX,y:-18,class:'dim'},g0);t.textContent='FUORI DALLO STAND';
+t=mk('text',{x:470,y:-18,class:'dim'},g0);t.textContent='FUORI DALLO STAND';
 
 const g25=mk('g',{style:'display:none'});
 mk('rect',{x:0,y:0,width:588,height:584,fill:'none',stroke:'#3fa7b6','stroke-width':2,'stroke-dasharray':'14 8'},g25);
@@ -280,7 +285,7 @@ document.getElementById('rw').addEventListener('change',ev=>setDim('w',+ev.targe
 document.getElementById('rd').addEventListener('change',ev=>{const e=EL.find(x=>x.id===sel);setDim(e&&e.fx?'h':'d',+ev.target.value)});
 document.getElementById('r0').onclick=()=>{if(!sel)return;snap();delete S[sel].w;delete S[sel].d;delete S[sel].h;save();all()};
 function tab(t){document.getElementById('paneE').style.display=t==='E'?'':'none';document.getElementById('paneG').style.display=t==='G'?'':'none';
- document.getElementById('tabE').classList.toggle('on',t==='E');document.getElementById('tabG').classList.toggle('on',t==='G')}
+ document.getElementById('tabE').classList.toggle('on',t==='E');document.getElementById('tabG').classList.toggle('on',t==='G');document.getElementById('topG').classList.toggle('on',t==='G')}
 document.getElementById('tabE').onclick=()=>tab('E');document.getElementById('tabG').onclick=()=>tab('G');
 function list(){fxcat();rsz();const L=document.getElementById('list');
  if(!L.childElementCount){EL.forEach(e=>{if(e.fx)return;if(e.grp&&e.id!=='s1')return;const G=e.grp?EL.filter(f=>f.grp===e.grp):[e];const d=document.createElement('div');d.className='it';d.dataset.id=e.id;

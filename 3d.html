@@ -24,8 +24,8 @@ header{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space
 </head><body>
 <header><div><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div><div style="display:flex;align-items:center;pointer-events:auto"><button class="b2d bs" onclick="print()">Stampa</button><button class="b2d" onclick="window.open('index.html','fimmapianta')">Vedi in pianta</button><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div></header>
 <div id="c"></div>
-<div class="bt"><button data-v="front">Dal corridoio</button><button data-v="top">Dall'alto</button><button data-v="side">Di lato</button></div>
-<div class="ver">v0.3.4</div>
+<div class="bt"><button data-v="front">Dal corridoio</button><button data-v="top">Dall'alto</button><button data-v="side">Di tre quarti</button></div>
+<div class="ver">v0.3.8</div>
 <script type="module">
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
@@ -84,7 +84,7 @@ function build(){
   if(e.id==='tv'){const sc=new THREE.Mesh(new THREE.BoxGeometry(110,62,1),new THREE.MeshStandardMaterial({color:0x0a0a0a,roughness:.2}));sc.position.set(0,125,e.d/2+0.6);g.add(sc)}
  });
 }
-function view(v){const c={front:[RW/2+60,170,RD+520],top:[RW/2,900,RD/2+1],side:[RW+520,220,RD/2+120]}[v];CAM.position.set(...c);OC.target.set(RW/2,v==='top'?0:70,RD/2);OC.update()}
+function view(v){const c={front:[RW/2+60,170,RD+520],top:[RW/2,900,RD/2+1],side:[RW+340,260,RD+360]}[v];CAM.position.set(...c);OC.target.set(RW/2,v==='top'?0:70,RD/2);OC.update()}
 document.querySelectorAll('.bt button').forEach(b=>b.onclick=()=>view(b.dataset.v));
 addEventListener('storage',ev=>{if(ev.key===KEY)build()});
 addEventListener('resize',()=>{CAM.aspect=innerWidth/innerHeight;CAM.updateProjectionMatrix();R.setSize(innerWidth,innerHeight)});
