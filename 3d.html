@@ -25,7 +25,7 @@ header{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space
 <header><div><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div><div style="display:flex;align-items:center;pointer-events:auto"><button class="b2d bs" onclick="print()">Stampa</button><button class="b2d" onclick="window.open('index.html','fimmapianta')">Vedi in pianta</button><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div></header>
 <div id="c"></div>
 <div class="bt"><button data-v="front">Dal corridoio</button><button data-v="top">Dall'alto</button><button data-v="side">Di tre quarti</button></div>
-<div class="ver">v0.3.8</div>
+<div class="ver">v0.4.2</div>
 <script type="module">
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
@@ -79,6 +79,11 @@ function build(){
     const led=new THREE.Mesh(new THREE.BoxGeometry(26,1,30),new THREE.MeshBasicMaterial({color:0xffd9a0}));led.position.set(c.position.x+2,c.position.y+16,c.position.z);g.add(led)}return}
   if(e.shape==='salotto'){[[45,45],[205,45],[55,155],[200,140]].forEach(([x,z])=>{const p=add(new THREE.Mesh(new THREE.BoxGeometry(62,70,62),mat('#3a3a3a')),e,35);p.position.set(x-e.w/2,35,z-e.d/2);g.add(p)});
    const tv=add(new THREE.Mesh(new THREE.BoxGeometry(46,45,46),mat('#2a2a2a')),e,22);tv.position.set(126-e.w/2,22,101-e.d/2);g.add(tv);return}
+  if(e.id==='li'){ // parete a listelli: fondo scuro e listelli verticali di legno
+   g.add(add(new THREE.Mesh(new THREE.BoxGeometry(3,e.h,e.d),mat(NERO)),e,e.h/2));
+   const L=e.d>=e.w,len=L?e.d:e.w,n=Math.floor((len+3)/7),off=(len-(n*7-3))/2;
+   for(let i=0;i<n;i++){const z=-len/2+off+i*7+2;const sl=add(new THREE.Mesh(new THREE.BoxGeometry(4,e.h,4),mat('#a57a52')),e,e.h/2);if(L){sl.position.z=z;sl.position.x=3.5}else{sl.position.x=z;sl.position.z=3.5}g.add(sl)}
+   return}
   g.add(add(new THREE.Mesh(new THREE.BoxGeometry(e.w,e.h,e.d),m),e,e.h/2));
   if(e.id==='b1'||e.id==='b2'){const gl=new THREE.Mesh(new THREE.BoxGeometry(e.w-4,1,e.d-4),new THREE.MeshBasicMaterial({color:0xf3ead8}));gl.position.y=e.h+0.6;g.add(gl)}
   if(e.id==='tv'){const sc=new THREE.Mesh(new THREE.BoxGeometry(110,62,1),new THREE.MeshStandardMaterial({color:0x0a0a0a,roughness:.2}));sc.position.set(0,125,e.d/2+0.6);g.add(sc)}
