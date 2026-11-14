@@ -25,7 +25,7 @@ header{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space
 <header><div><img src="img/fimma_titolo_sfumato.jpg" style="height:50px;margin:0 0 6px -3px;display:block"><div class="t">Stand Milano Unica · febbraio 2027</div><div class="s">24 m² · 388 × 588 cm · fronte aperto</div></div><div style="display:flex;align-items:center;pointer-events:auto"><button class="b2d bs" onclick="print()">Stampa</button><button class="b2d" onclick="window.open('index.html','fimmapianta')">Vedi in pianta</button><img class="logo" src="img/lgstudio_logo_bianco.jpg" alt="lg studio"></div></header>
 <div id="c"></div>
 <div class="bt"><button data-v="front">Dal corridoio</button><button data-v="top">Dall'alto</button><button data-v="side">Di tre quarti</button></div>
-<div class="ver">v0.4.3</div>
+<div class="ver">v0.4.4</div>
 <script type="module">
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
@@ -88,6 +88,10 @@ function build(){
     const rim=new THREE.Mesh(new THREE.TorusGeometry(29.5,2.6,10,40,ARC),TES);rim.rotation.x=-Math.PI/2;rim.castShadow=true;rg.add(rim);
     [0,ARC].forEach(a=>{const cap=add(new THREE.Mesh(new THREE.CylinderGeometry(2.6,2.6,40,10),TES),e,52);cap.position.set(Math.sin(t0+a)*29.5,52,Math.cos(t0+a)*29.5);c.add(cap)})});
    const tv=add(new THREE.Mesh(new THREE.BoxGeometry(46,45,46),mat('#2a2a2a')),e,22);tv.position.set(126-e.w/2,22,101-e.d/2);g.add(tv);return}
+  if(e.id==='tl'){ // parete storia: grafica timeline 65 anni sul lato verso il corridoio
+   const t=TL.load((window.FXDATA&&FXDATA['fx26_timeline-65'])||'img/forex/fx26_timeline-65.jpg');t.colorSpace=THREE.SRGBColorSpace;
+   const fm=new THREE.MeshStandardMaterial({map:t,roughness:.8}),nm=mat(NERO);
+   g.add(add(new THREE.Mesh(new THREE.BoxGeometry(e.w,e.h,e.d),[nm,nm,nm,nm,fm,nm]),e,e.h/2));return}
   if(e.id==='li'){ // parete a listelli: fondo scuro e listelli verticali di legno
    g.add(add(new THREE.Mesh(new THREE.BoxGeometry(3,e.h,e.d),mat(NERO)),e,e.h/2));
    const L=e.d>=e.w,len=L?e.d:e.w,n=Math.floor((len+3)/7),off=(len-(n*7-3))/2;
